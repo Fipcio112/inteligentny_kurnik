@@ -11,26 +11,33 @@ Inteligentny kurnik to projekt który symuluje dzień i noc. Główne funkcje na
   ## Lider grupy
     Liderem grupy jest Andrzej Szyler 
   
-    Nasza farma pracuje na STM32 i jest programowana za pomocą a nawet nie wiem coś tam w visualu się robi
-    potem wpisuje make i jakoś to działa
-
+   Przedstawiony przez nas inteligentny kurnik pracuje w oparciu o 8-bitowy kontroler AVR Atmega328P z 32-kilobajtami pamięci flash.
+  Jest obsługiwany przez kod oparty na środowisku Visual Studio Code w języku C.
+  
     ![in](./image/ddd.jpg)
-    tak wygląda płytka nie wiem czy to jest ta raczej nie ale podobna ta z zajęć nie wiem jak się nazywa
-    dokładnie ale to też się jakoś prezentuje
+    ATmega328P
 
   
     ## Wyjścia i wejścia cyfrowe
 
     ### Wejścia
-    Są wejścia 
+    {
+    -SCK
+    -MISO
+    -MOSI
+    -CS
+    }(Zegar odmierzający dobę)
+    -PD0(W połączeniu z diodą LED0 sygnalizuje czy kurnik jest zamknięty bądź otwarty)
 
     ### Wyjścia
-    Wyjścia też
+    -PB5-1
+    -LED0
 
     ## Wejścia Temperaturowe
-    Ciepło musi być bo kury zamrazną 
+    -PB0(Reguluje temperature w dzień i noc automatycznie)
 
     ## Wejścia anaglowe
-    Coś się znajdzie bo teraz nie wiem jeszcze jak to będzie latać
+   -SW0(Przełącznik otwacia i zamknięcia kurnika)
+   -Regulator temperatury(nie wiem jak było to opisane na płytce w kazdym razie gałka analogowa)(Reguluje temprature na zawołanie)
 
     Struktura pliku: tutaj bedzie jakis plik chyba 
