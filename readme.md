@@ -20,24 +20,24 @@ Inteligentny kurnik to projekt który symuluje dzień i noc. Główne funkcje na
   
     ## Wyjścia i wejścia cyfrowe
 
-    ### Wejścia
-    {
-    -SCK
-    -MISO
-    -MOSI
-    -CS
-    }(Zegar odmierzający dobę)
-    -PD0(W połączeniu z diodą LED0 sygnalizuje czy kurnik jest zamknięty bądź otwarty)
+    ### Wejścia:
+    
+    -SCK\
+    -MISO\
+    -MOSI\
+    -CS\
+    }(Zegar odmierzający dobę)\
+    -PD0 (W połączeniu z diodą LED0 sygnalizuje czy kurnik jest zamknięty bądź otwarty)
 
     ### Wyjścia
-    -PB5-1
-    -LED0
+    -PB5-1\
+    -LED0\
 
     ## Wejścia Temperaturowe
-    -PB0(Reguluje temperature w dzień i noc automatycznie)
+    -PB0(Reguluje temperature w dzień i noc automatycznie)\
 
     ## Wejścia anaglowe
-   -SW0(Przełącznik otwacia i zamknięcia kurnika)
-   -Regulator temperatury(nie wiem jak było to opisane na płytce w kazdym razie gałka analogowa)(Reguluje temprature na zawołanie)
+   -SW0(Przełącznik otwacia i zamknięcia kurnika)\
+   -Regulator temperatury(nie wiem jak było to opisane na płytce w kazdym razie gałka analogowa)(Reguluje temprature na zawołanie)\
 
     Struktura pliku: tutaj bedzie jakis plik chyba 
