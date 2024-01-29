@@ -7,5 +7,4 @@
     - Dokumentacja projektu kurnika
     - Projekt kurnika w kicad
   ## Jakub Szydłowski
-    - Kurnik w blenderze 
     - Początek dokumentacij ktoś sie musiał zainteresować
