@@ -1,6 +1,6 @@
 # Inteligentny Kurnik
 
-Dopiero początek projektu [TODO](./todo.md)
+Dopiero początek projektu ~~[TODO](./todo.md)~~
 
 Inteligentny kurnik to projekt który symuluje dzień i noc. Główne funkcje naszego programu:
 - Sterowanie oświetleniem symulującym słońce
@@ -34,13 +34,13 @@ Inteligentny kurnik to projekt który symuluje dzień i noc. Główne funkcje na
     -LED0\
 
     ## Wejścia Temperaturowe
-    -PB0(Reguluje temperature w dzień i noc automatycznie)\
+    -~~PB0(Reguluje temperature w dzień i noc automatycznie)~~\
 
     ## Wejścia anaglowe
    -SW0(Przełącznik otwacia i zamknięcia kurnika)\
    -Regulator temperatury(nie wiem jak było to opisane na płytce w kazdym razie gałka analogowa)(Reguluje temprature na zawołanie)\
 
-    Struktura pliku: tutaj bedzie jakis plik chyba
+    ~~Struktura pliku: tutaj bedzie jakis plik chyba~~
 
     ```c
     #define __AVR_ATmega328P__
