@@ -41,7 +41,8 @@ Inteligentny kurnik to projekt który symuluje dzień i noc. Główne funkcje na
    -Regulator temperatury(nie wiem jak było to opisane na płytce w kazdym razie gałka analogowa)(Reguluje temprature na zawołanie)\
 
     ~~Struktura pliku: tutaj bedzie jakis plik chyba~~
-
+    ## Kod
+  
     ```c
     #define __AVR_ATmega328P__
     #define F_CPU 16000000
