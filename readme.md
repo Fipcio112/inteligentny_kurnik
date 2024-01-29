@@ -5,7 +5,7 @@ Dopiero początek projektu ~~[TODO](./todo.md)~~
 Inteligentny kurnik to projekt który symuluje dzień i noc. Główne funkcje naszego programu:
 - Sterowanie oświetleniem symulującym słońce
 - płynne rozświetlanie i gaszenie lamp
-- ~~możliwość ustawienia długości doby~~
+- możliwość ustawienia długości doby
 - sygnał sterujący do sterowani drzwiami
   
   ## Lider grupy
@@ -34,13 +34,12 @@ Inteligentny kurnik to projekt który symuluje dzień i noc. Główne funkcje na
     -LED0\
 
     ## Wejścia Temperaturowe
-    -~~PB0(Reguluje temperature w dzień i noc automatycznie)~~\
+    -PB0(Reguluje temperature w dzień i noc automatycznie)\
 
     ## Wejścia anaglowe
    -SW0(Przełącznik otwacia i zamknięcia kurnika)\
    -Regulator temperatury(nie wiem jak było to opisane na płytce w kazdym razie gałka analogowa)(Reguluje temprature na zawołanie)\
 
-    ~~Struktura pliku: tutaj bedzie jakis plik chyba~~
     ## Kod
   
     ```c
@@ -54,32 +53,55 @@ Inteligentny kurnik to projekt który symuluje dzień i noc. Główne funkcje na
     {
       PORT_Init();
       PORT_Start();
-      int x = 0;
-      DDRD |= (1 << 3);
-      DDRB &= ~(1 << 2);
-      PORTB |= (1 << 2);
-      while (1)
+      int x = 0, y = 18; // x to wartość sterująca oświetleniem, y to wartość temperatury
+    
+      DDRD &= ~0x03; // Deklaracja wejść (Przyciski) PD0 i PD1
+      DDRB &= ~0x3C; // Deklaracja wejść dla wyświetlacza [PB2...PB5]
+      PORTD |= 0x03; // Rezystory dla wejść [PD0,PD1]
+      DDRD |= 0x0C   // Deklaracja wyjść
+    
+          while (1)
       {
         for (int j = 0; j < 24; j++)
-        {
+        { // Pętla symulująca 24h zegar
           for (int i = 0; i < 60; i++)
           {
-            SEG7_Sign(0, j, false);
-            SEG7_Sign(2, i, false);
-    
-            if (j >= 6 && x != 60 && j < 18)
+            if (~PIND & (1 << 0))
+            { // Przycisk otwierający furtkę podłączony do wejścia PD0
+              PORTD |= (1 << 2);
+            }
+            else
             {
+              PORTD &= ~(1 << 2);
+            }
+            if (~PIND & (1 << 1))
+            { // Po wciśnięciu przycisku (wejście PD1) zamiast zegara na wyświetlaczu pojawia się temperatura
+              SEG7_Int(y);
+            }
+            else
+            {
+              SEG7_Sign(0, j, false);
+              SEG7_Sign(2, i, false); // Wyświetla godzinę na wyświetlaczu
+            }
+            if (j >= 6 && x != 60 && j < 18)
+            { // Zapala światło między godziną 6:00 a 18:00
               x = 2 * i;
-              PWM_SetA(x);
-              PORTB |= (1 << 5);
+              PWM_SetA(x); // Sterowanie oświetleniem
+              if (y == 18)
+              {
+                y = y + 5;
+              }
             }
             if (j >= 18 && x != 0 && j < 6)
-            {
+            { // Gasi światło pomiędzy 18:00 a 6:00
               x = 60 - 2 * i;
               PWM_SetA(x);
-              PORTB &= ~(1 << 5);
+              if (y != 18)
+              {
+                y = y - 5; // zmniejsza temperaturę na noc
+              }
+              _delay_ms(288); // czas trwania jednej minuty w symulacji
             }
-            _delay_ms(3);
           }
         }
       }
