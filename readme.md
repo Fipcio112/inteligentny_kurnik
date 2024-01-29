@@ -14,7 +14,7 @@ Inteligentny kurnik to projekt który symuluje dzień i noc. Główne funkcje na
    Przedstawiony przez nas inteligentny kurnik pracuje w oparciu o 8-bitowy kontroler AVR Atmega328P z 32-kilobajtami pamięci flash.
   Jest obsługiwany przez kod oparty na środowisku Visual Studio Code w języku C.
   
-    ![in](./ddd.png)
+    ![in](./ATM328p.png)
     ATmega328P
 
   
